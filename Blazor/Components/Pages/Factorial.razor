@@ -8,8 +8,12 @@
 <div class="factorial">
     <div>
         <label for = "number">Число для вычисления факториала:</label>
-        <input type = "number" id = "number" @bind ="number" @bind:after ="Calculate"/>
-        <button @onclick="Calculate">Вычислить</button>
+        <input type = "number" 
+               id = "number" 
+               @bind ="number" 
+               @bind:after ="Calculate"
+               class =" form-control"/>
+        <button @onclick="Calculate" class =" btn-primary">Вычислить</button>
     </div>
     <div id =" factorial-result">@number! = @factorial</div>
 </div>
