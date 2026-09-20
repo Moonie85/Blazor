@@ -1,0 +1,21 @@
+﻿@page "/counter"
+@rendermode InteractiveServer
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<h2 role="status">Текущее значение: @currentCount</h2>
+<input type = "number" />
+
+<button class="btn btn-primary" @onclick="IncrementCount">Increment</button>
+
+@code {
+    private int currentCount = 0;
+    int step = 1;
+
+    private void IncrementCount()
+    {
+        currentCount += step;
+    }
+}
