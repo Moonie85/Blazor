@@ -1,0 +1,32 @@
+﻿@page "/tasklist"
+@rendermode InteractiveServer
+<div class="controls">
+    <input type="text" placeholder =" Новая задача" class="form-control" @bind="description" />
+    <button class="btn btn-primary" @onclick="AddTask">Добавить</button>
+</div>
+
+<hr />
+
+<h3>Tasklist</h3>
+
+<ul>
+    @foreach (TODOlist.TODO task in tasklist)
+    {
+        <li>
+            @task.Description
+        </li>
+    }
+</ul>
+
+@code 
+{
+    List<TODOlist.TODO> tasklist = [];
+    string description;
+    void AddTask()
+    {
+        if (string.IsNullOrWhiteSpace(description)) return;
+        if (tasklist.Contains(new TODOlist.TODO { Description = description })) return;
+        tasklist.Add(new TODOlist.TODO { Description = description });
+        description = "";
+    }
+}
