@@ -1,4 +1,4 @@
-using TODOLIST.Components;
+using TODOlist.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
