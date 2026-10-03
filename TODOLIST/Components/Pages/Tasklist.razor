@@ -14,12 +14,19 @@
 <h5>Осталось: @tasklist.Where(t=> t.DONE ==false).ToList().Count</h5>
 </div>
 
+<div class="controls">
+    <button class="btn btn-warning" @onclick="DeleteCompleted">Удалить выполненные</button>
+    <button class="btn btn-danger" @onclick="ClearAll">Очистить</button>
+</div>
+
 <ul>
     @foreach (TODOlist.TODO task in tasklist)
     {
         <li>
             <input type="checkbox" id="@task.Description" @bind="task.DONE" />
             <label for="@task.Description">@task.Description</label>
+            <span class="text-muted"> (добавлено: @task.CreatedAt.ToString("dd.MM.yyyy HH:mm:ss"))</span>
+            <button class="btn btn-sm btn-danger" @onclick="() => DeleteTask(task)">Удалить</button>
         </li>
     }
 </ul>
@@ -29,16 +36,33 @@
     //List<TODOlist.TODO> tasklist = [];
     List<TODO> tasklist =
         [
-        new TODO {Description = "Полить цветы"},
-        new TODO {Description = "Погулять с собакой"},
-        new TODO {Description = "Помыть посуду"},
+        new TODO {Description = "Полить цветы", CreatedAt = DateTime.Now },
+        new TODO {Description = "Погулять с собакой", CreatedAt = DateTime.Now },
+        new TODO {Description = "Помыть посуду", CreatedAt = DateTime.Now },
     ];
     string description;
+
     void AddTask()
     {
         if (string.IsNullOrWhiteSpace(description)) return;
         if (tasklist.Contains(new TODOlist.TODO { Description = description })) return;
-        tasklist.Add(new TODOlist.TODO { Description = description });
+        tasklist.Add(new TODOlist.TODO { Description = description, CreatedAt = DateTime.Now});
         description = "";
     }
+
+    void DeleteTask(TODO task)
+    {
+        tasklist.Remove(task);
+    }
+
+    void DeleteCompleted()
+    {
+        tasklist.RemoveAll(t => t.DONE);
+    }
+
+    void ClearAll()
+    {
+        tasklist.Clear();
+    }
+
 }
