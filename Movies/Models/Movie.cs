@@ -6,7 +6,14 @@ namespace Movies.Models
     public class Movie
     {
         public int Id { get; set; }
+
+        [Required] // обязательное поле, дата анотации пишутся перед полем и применимы к одному полю 
+        [StringLength(100, MinimumLength =2)]
+        //[RegularExpression("^[A-ZА-Я0-9][a-zа-я 0-9]*$")]
+        [RegularExpression(@"^[A-ZА-Я0-9][a-zA-Za-zа-яА-Я0-9\s\-,.:!?«»""]*$")]
         public string Title { get; set; }
+
+        [RangeAttribute(typeof(DateOnly), "1895-12-28", "2030-12-31")]
         public DateOnly ReleaseData { get; set; }
         public string Genre { get; set; }
         public string? URL { get; set; }
