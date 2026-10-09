@@ -1,0 +1,55 @@
+﻿@page "/teachers"
+@using Academy.Data
+@using Academy.Models
+@using Microsoft.EntityFrameworkCore
+@inject ApplicationDbContext DbContext
+
+<h3>Преподаватели</h3>
+
+@if (teachers == null)
+{
+    <p>Загрузка...</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Отчество</th>
+                <th>Дата рождения</th>
+                <th>Email</th>
+                <th>Телефон</th>
+                <th>Работает с</th>
+                <th>Ставка</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var t in teachers)
+            {
+                <tr>
+                    <td>@t.Id</td>
+                    <td>@t.LastName</td>
+                    <td>@t.FirstName</td>
+                    <td>@t.MiddleName</td>
+                    <td>@(t.BirthDate?.ToString("dd.MM.yyyy") ?? "—")</td>
+                    <td>@t.Email</td>
+                    <td>@t.Phone</td>
+                    <td>@(t.WorkSince?.ToString("dd.MM.yyyy") ?? "—")</td>
+                    <td>@(t.Rate?.ToString() ?? "—")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Teacher>? teachers;
+
+    protected override async Task OnInitializedAsync()
+    {
+        teachers = await DbContext.Teachers.ToListAsync();
+    }
+}

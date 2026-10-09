@@ -1,0 +1,47 @@
+﻿@page "/groups"
+@using Academy.Data
+@using Academy.Models
+@using Microsoft.EntityFrameworkCore
+@inject ApplicationDbContext DbContext
+
+<h3>Группы</h3>
+
+@if (groups == null)
+{
+    <p>Загрузка...</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Название</th>
+                <th>Направление</th>
+                <th>Дни недели</th>
+                <th>Время начала</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var g in groups)
+            {
+                <tr>
+                    <td>@g.Id</td>
+                    <td>@g.Name</td>
+                    <td>@g.DirectionId</td>
+                    <td>@g.Weekdays</td>
+                    <td>@(g.StartTime?.ToString() ?? "—")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Group>? groups;
+
+    protected override async Task OnInitializedAsync()
+    {
+        groups = await DbContext.Groups.ToListAsync();
+    }
+}
