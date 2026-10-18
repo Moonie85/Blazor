@@ -19,6 +19,7 @@
     <input type="text" placeholder="Поиск по названию..." @bind="searchString" @bind:event="oninput" />
 </p>
 
+@* <QuickGrid Class="table" Items="context.Groups.Include(g => g.Direction)" Pagination="@pagination"> *@
 <QuickGrid Class="table" Items="FilteredGroups" Pagination="@pagination">
     <PropertyColumn Property="group => group.group_name" Title="Название группы" Sortable="true" />
     <PropertyColumn Property="group => group.Direction.direction_name" Title="Направление" Sortable="true" />
