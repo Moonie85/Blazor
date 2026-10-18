@@ -1,4 +1,5 @@
 @page "/groups/edit"
+@rendermode InteractiveServer
 @using Microsoft.EntityFrameworkCore
 @using Academy2.Models
 @inject IDbContextFactory<Academy2Context> DbFactory
@@ -47,11 +48,14 @@ else
                     <ValidationMessage For="() => Group.direction" class="text-danger" />
                 </div> *@
                 <ChooseDirection Group="Group" />
-                <div class="mb-3">
+                @* <div class="mb-3">
                     <label for="learning_days" class="form-label">learning_days:</label>
                     <InputNumber id="learning_days" @bind-Value="Group.learning_days" class="form-control" />
                     <ValidationMessage For="() => Group.learning_days" class="text-danger" />
-                </div>
+                </div> *@
+
+                <Learningdays Group="Group" />
+
                 <div class="mb-3">
                     <label for="start_time" class="form-label">start_time:</label>
                     <InputDate Type="InputDateType.Time" id="start_time" @bind-Value="Group.start_time" class="form-control" />

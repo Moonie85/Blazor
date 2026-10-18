@@ -15,7 +15,7 @@
             List<string> result = new List<string>();
             for (int i = 0; i < 7; i++)
             {
-                if (((days >> i) & 1) != 0) result.Add(days.DAYNAMES[i]);
+                if (((days >> i) & 1) != 0) result.Add(DAYNAMES[i]);
             }
             return String.Join(", ", result);
         }
