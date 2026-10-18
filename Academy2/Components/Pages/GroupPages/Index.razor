@@ -9,15 +9,17 @@
 
 <PageTitle>Index</PageTitle>
 
-<h1>Index</h1>
+<div class="controls">
+    <h1>Группа</h1>
 
-<p>
-    <a href="groups/create">Create New</a>
-</p>
+    <p>
+        <a href="groups/create" class="btn btn-primary">Добавить</a>
+    </p>
 
-<p>
-    <input type="text" placeholder="Поиск по названию..." @bind="searchString" @bind:event="oninput" />
-</p>
+    <p>
+        <input type="text" placeholder="Поиск по названию..." @bind="searchString" @bind:event="oninput" />
+    </p>
+</div>
 
 @* <QuickGrid Class="table" Items="context.Groups.Include(g => g.Direction)" Pagination="@pagination"> *@
 <QuickGrid Class="table" Items="FilteredGroups" Pagination="@pagination">
