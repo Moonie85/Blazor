@@ -29,7 +29,7 @@
     >
         <a href="@($"students/details?stud_id={student.stud_id}")">@student.full_name</a>
     </TemplateColumn>
-    <PropertyColumn Property="student => student.birth_date" Sortable="true"/>
+    <PropertyColumn Property="student => student.birth_date" Title="Дата рождения" Sortable="true" />
     <PropertyColumn Property="student => student.Group.group_name" Sortable="true" />
     <PropertyColumn Property="student => student.Group.Direction.direction_name" Sortable="true" />
     @* <PropertyColumn Property="student => student.Group" /> *@
