@@ -29,7 +29,7 @@ namespace Academy2.Models
         public DateOnly birth_date { get; set; }
         public string? email { get; set; }
         public string? phone { get; set; }
-        public string[]? photo { get; set; }
+        public byte[]? photo { get; set; }
 
         //Calculated properties:
         public string full_name

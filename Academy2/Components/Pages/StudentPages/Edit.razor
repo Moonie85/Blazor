@@ -24,12 +24,6 @@ else
                 <DataAnnotationsValidator />
                 <ValidationSummary role="alert"/>
                 <input type="hidden" name="Student.stud_id" value="@Student.stud_id" />
-                <div class="mb-3">
-                <span class="text-danger">*</span>
-                    <label for="group" class="form-label">group:</label>
-                    <InputNumber id="group" @bind-Value="Student.group" class="form-control" aria-required="true"/>
-                    <ValidationMessage For="() => Student.group" class="text-danger" />
-                </div>
                 @* <div class="mb-3">
                     <label for="group" class="form-label">Group:</label>
                     <InputText id="group" @bind-Value="Student.Group" class="form-control" />
@@ -53,12 +47,12 @@ else
                     <InputText id="middle_name" @bind-Value="Student.middle_name" class="form-control" aria-required="true"/>
                     <ValidationMessage For="() => Student.middle_name" class="text-danger" />
                 </div>
-                <div class="mb-3">
+                @* <div class="mb-3">
                 <span class="text-danger">*</span>
                     <label for="birth_date" class="form-label">birth_date:</label>
                     <InputDate id="birth_date" @bind-Value="Student.birth_date" class="form-control" aria-required="true"/>
-                    <ValidationMessage For="() => Student.birth_date" class="text-danger" />
-                </div>
+                    <ValidationMessage For="() => Student.birth_date" class="text-danger" /> 
+                </div>*@
                 <div class="mb-3">
                     <label for="email" class="form-label">email:</label>
                     <InputText id="email" @bind-Value="Student.email" class="form-control" />
@@ -69,6 +63,7 @@ else
                     <InputText id="phone" @bind-Value="Student.phone" class="form-control" />
                     <ValidationMessage For="() => Student.phone" class="text-danger" />
                 </div>
+                <ChooseGroup Student="Student" />
                 @* <div class="mb-3">
                     <label for="photo" class="form-label">photo:</label>
                     <InputText id="photo" @bind-Value="Student.photo" class="form-control" />
