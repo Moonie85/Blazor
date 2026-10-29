@@ -17,7 +17,14 @@
     </p>
 </div>
 
-<QuickGrid Class="table" Items="context.Students.Include(s => s.Group).ThenInclude(g => g.Direction)">
+<div>
+    <p>
+        <input type="text" placeholder="Поиск по ФИО студента..." @bind="searchString" @bind:event="oninput" />
+    </p>
+</div>
+
+@* <QuickGrid Class="table" Items="context.Students.Include(s => s.Group).ThenInclude(g => g.Direction)"> *@
+<QuickGrid Class="table" Items="FilteredStudents" Pagination="@pagination">
     @* <PropertyColumn Property="student => student.last_name" />
     <PropertyColumn Property="student => student.middle_name" />
     <PropertyColumn Property="student => student.first_name" /> *@
@@ -25,8 +32,7 @@
     <TemplateColumn Context="student"
                     Title="Студент"
                     Sortable="true"
-                    SortBy="sortBy"
-    >
+                    SortBy="sortBy">
         <a href="@($"students/details?stud_id={student.stud_id}")">@student.full_name</a>
     </TemplateColumn>
     <PropertyColumn Property="student => student.birth_date" Title="Дата рождения" Sortable="true" />
@@ -44,10 +50,41 @@
     </TemplateColumn> *@
 </QuickGrid>
 
+<Paginator State="@pagination" />
+
 @code {
     private Academy2Context context = default!;
 
-    GridSort<Student> sortBy = GridSort<Student>.ByAscending(s => s.last_name); 
+    GridSort<Student> sortBy = GridSort<Student>.ByAscending(s => s.last_name);
+
+    private string searchString = "";
+
+    private PaginationState pagination = new PaginationState { ItemsPerPage = 10 };
+
+    private IQueryable<Student> FilteredStudents
+    {
+        get
+        {
+            // Формируем базовый запрос со всеми необходимыми связями
+            var query = context.Students
+                .Include(s => s.Group)
+                .ThenInclude(g => g.Direction)
+                .AsNoTracking();
+
+            // Если строка поиска не пуста, фильтруем по фамилии, имени или отчеству
+            if (!string.IsNullOrWhiteSpace(searchString))
+            {
+                var search = searchString.Trim();
+                query = query.Where(s =>
+                    s.last_name.Contains(search) ||
+                    s.first_name.Contains(search) ||
+                    s.middle_name.Contains(search));
+            }
+
+            return query;
+        }
+    }
+
 
     protected override void OnInitialized()
     {

@@ -9,17 +9,18 @@
 @* <h1>Details</h1> *@
 
 <div>
-@* <h2>Student</h2>
+    @* <h2>Student</h2>
     <hr /> *@
     @if (student is null)
     {
         <p><em>Loading...</em></p>
     }
-    else {
+    else
+    {
         <div class="controls">
             <h1>@student.full_name</h1>
             <a href="@($"/students/edit?stud_id={student.stud_id}")">Edit</a>
-        </div>        
+        </div>
         <hr />
         <dl class="row">
             <dt class="col-sm-2">last_name</dt>
@@ -46,7 +47,7 @@
     }
 </div>
 
-@code 
+@code
 {
     private Student? student;
 

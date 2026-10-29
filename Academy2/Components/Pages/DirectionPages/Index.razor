@@ -9,11 +9,21 @@
 
 <PageTitle>Index</PageTitle>
 
-<h1>Index</h1>
+@* <h1>Index</h1>
 
 <p>
     <a href="directions/create">Create New</a>
-</p>
+</p> *@
+
+<div class="controls">
+
+    <h1>Направление</h1>
+
+    <p>
+        <a href="directions/create" class="btn btn-primary">Добавить</a>
+    </p>
+</div>
+
 
 <p>
     <input type="text" placeholder="Поиск по названию..." @bind="searchString" @bind:event="oninput" />
@@ -23,9 +33,9 @@
     <PropertyColumn Property="direction => direction.direction_name" Title="Название" Sortable="true" />
 
     <TemplateColumn Context="direction">
-        <a href="@($"directions/edit?direction_id={direction.direction_id}")">Edit</a> |
-        <a href="@($"directions/details?direction_id={direction.direction_id}")">Details</a> |
-        <a href="@($"directions/delete?direction_id={direction.direction_id}")">Delete</a>
+        @* <a href="@($"directions/edit?direction_id={direction.direction_id}")">Edit</a> | *@
+        <a href="@($"directions/details?direction_id={direction.direction_id}")">Details</a>
+        @* <a href="@($"directions/delete?direction_id={direction.direction_id}")">Delete</a> *@
     </TemplateColumn>
 </QuickGrid>
 

@@ -1,4 +1,5 @@
 @page "/students/create"
+@rendermode InteractiveServer
 @using Microsoft.EntityFrameworkCore
 @using Academy2.Models
 @inject IDbContextFactory<Academy2Context> DbFactory
@@ -15,12 +16,13 @@
         <EditForm method="post" Model="Student" OnValidSubmit="AddStudent" FormName="create" Enhance>
             <DataAnnotationsValidator />
             <ValidationSummary class="text-danger" role="alert"/>
-            <div class="mb-3">
+
+            @* <div class="mb-3">
                 <span class="text-danger">*</span>
                 <label for="group" class="form-label">group:</label> 
                 <InputNumber id="group" @bind-Value="Student.group" class="form-control" aria-required="true"/> 
                 <ValidationMessage For="() => Student.group" class="text-danger" /> 
-            </div>        
+            </div>         *@
             @* <div class="mb-3">
                 <label for="group" class="form-label">Group:</label> 
                 <InputText id="group" @bind-Value="Student.Group" class="form-control" /> 
@@ -60,12 +62,17 @@
                 <InputText id="phone" @bind-Value="Student.phone" class="form-control" /> 
                 <ValidationMessage For="() => Student.phone" class="text-danger" /> 
             </div>        
+
+            <ChooseGroup Student="Student" />
+            <Photo Human="Student" AllowChange="true" />
+            <button type="submit" class="btn btn-primary mt-4">Create</button>
+
             @* <div class="mb-3">
                 <label for="photo" class="form-label">photo:</label> 
                 <InputText id="photo" @bind-Value="Student.photo" class="form-control" /> 
                 <ValidationMessage For="() => Student.photo" class="text-danger" /> 
             </div>         *@
-            <button type="submit" class="btn btn-primary">Create</button>
+
         </EditForm>
     </div>
 </div>
