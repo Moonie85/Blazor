@@ -1,4 +1,6 @@
 @page "/directions/details"
+@rendermode InteractiveServer
+@using Microsoft.AspNetCore.Components.QuickGrid
 @using Microsoft.EntityFrameworkCore
 @using Academy2.Models
 @inject IDbContextFactory<Academy2Context> DbFactory
@@ -16,6 +18,7 @@
         <p><em>Loading...</em></p>
     }
     else {
+        @* <h1>@direction.direction_name</h1> *@
         <div class="controls">
             <h1>@direction.direction_name</h1>
             <a href="@($"/directions/edit?direction_id={direction.direction_id}")" class="btn btn-primary">Edit</a>
@@ -23,10 +26,10 @@
         <hr />
 
 
-        @* <dl class="row">
-            <dt class="col-sm-2">direction_name</dt>
-            <dd class="col-sm-10">@direction.direction_name</dd>
-        </dl> *@
+        <dl class="row">
+            <dt class="col-sm-2">Количество групп</dt>
+            <dd class="col-sm-10">@direction.Groups.Count</dd>
+        </dl>
 
         <div class="mt-4">
             <h4>Группы этого направления:</h4>
@@ -53,6 +56,20 @@
             @* <a href="@($"/directions/edit?direction_id={direction.direction_id}")">Edit</a> | *@
             <a href="@($"/directions")">Back to List</a>
         </div>
+
+        @* <h3>Группы</h3>
+        <ul>
+            @foreach (Group group in direction.Groups)
+            {
+                <li>@group.group_name</li>
+            }
+        </ul> *@
+
+        @* <QuickGrid Items="direction.Groups.AsQueryable()" Class="table">
+            <PropertyColumn Sortable="true" Property="group => group.group_name"
+            <PropertyColumn Sortable="true" Property="group => group.Student.Count"
+
+        </QuickGrid> *@
     }
 </div>
 
@@ -67,7 +84,10 @@
     protected override async Task OnInitializedAsync()
     {
         using var context = DbFactory.CreateDbContext();
-        direction = await context.Directions.FirstOrDefaultAsync(m => m.direction_id == direction_id);
+        direction = await context.Directions
+        .Include(d => d.Groups)
+        // .ThenInclude()
+        .FirstOrDefaultAsync(m => m.direction_id == direction_id);
 
         if (direction is null)
         {

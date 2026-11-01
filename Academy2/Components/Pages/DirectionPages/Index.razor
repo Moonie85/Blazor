@@ -31,6 +31,7 @@
 
 <QuickGrid Class="table" Items="@FilteredDirections" Pagination="@pagination">
     <PropertyColumn Property="direction => direction.direction_name" Title="Название" Sortable="true" />
+    @* <PropertyColumn Property="direction => direction.Groups.Count"  Sortable="true" /> *@
 
     <TemplateColumn Context="direction">
         @* <a href="@($"directions/edit?direction_id={direction.direction_id}")">Edit</a> | *@
