@@ -31,6 +31,12 @@
             <dd class="col-sm-10">@direction.Groups.Count</dd>
             @* <dt class="col-sm-2">Количество студентов</dt>
             <dd class="col-sm-10">@students.Count</dd> *@
+
+            @* <dt class="col-sm-2">Всего групп</dt>
+            <dd class="col-sm-10">@groupsCount</dd> *@
+            <dt class="col-sm-2">Всего студентов</dt>
+            <dd class="col-sm-10"><strong>@totalStudentsCount</strong></dd>
+
             
         </dl>
 
@@ -81,6 +87,9 @@
 
     private List<Group>? groups;
 
+    private int groupsCount;
+    private int totalStudentsCount;
+
     [SupplyParameterFromQuery]
     private int direction_id { get; set; }
 
@@ -106,6 +115,14 @@
             groups = await context.Groups
                 .Where(g => g.direction == direction_id)
                 .ToListAsync();
+
+            groupsCount = groups.Count;
+
+            var groupIds = groups.Select(g => g.group_id).ToList();
+            totalStudentsCount = await context.Students
+                .Where(s => groupIds.Contains(s.group))
+                .CountAsync();
+
         }
     }
 }
