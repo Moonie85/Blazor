@@ -12,14 +12,14 @@ namespace Academy2.Models
 
         [Required]
         [StringLength(150)]
-        [Column(TypeName ="NVARCHAR(150)")]
+        [Column(TypeName = "NVARCHAR(150)")]
         public string discipline_name { get; set; }
 
         [Required]
-        [Column(TypeName ="TINYINT")]
-        public int number_of_lesson { get; set; }
+        [Column(TypeName = "TINYINT")]
+        public int number_of_lessons { get; set; }
 
         // navigation properties:
-        public ICollection<Teacher> Teachers { get; set; }
+        public ICollection<Teacher?> Teachers { get; set; }
     }
 }

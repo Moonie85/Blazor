@@ -32,6 +32,9 @@
             <dd class="col-sm-10">@group.start_time</dd>
             <dt class="col-sm-2">start_date</dt>
             <dd class="col-sm-10">@group.start_date</dd>
+
+            <dt class="col-sm-2">Количество студентов</dt>
+            <dd class="col-sm-10"><strong>@studentCount</strong></dd>
         </dl>
 
         <div class="mt-4">
@@ -66,6 +69,8 @@
 
     private List<Student>? students;
 
+    private int studentCount;
+
     [SupplyParameterFromQuery]
     private int group_id { get; set; }
 
@@ -83,6 +88,8 @@
             students = await context.Students
                 .Where(s => s.group == group_id)
                 .ToListAsync();
+
+            studentCount = students.Count;
         }
     }
 }

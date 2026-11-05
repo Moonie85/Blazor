@@ -34,6 +34,23 @@
     @* <PropertyColumn Property="direction => direction.Groups.Sum(g => g.Student.Count)" /> *@
     @* <PropertyColumn Property="direction => direction.Groups.Count"  Sortable="true" /> *@
 
+    <TemplateColumn Title="Кол-во групп" Context="direction" Align="Align.Center">
+        <span>
+            @context.Groups.Count(g => g.direction == direction.direction_id)
+        </span>
+    </TemplateColumn>
+
+    <TemplateColumn Title="Кол-во студентов" Context="direction" Align="Align.Center">
+        <span>
+            @context.Students.Count(s => 
+                context.Groups
+                    .Where(g => g.direction == direction.direction_id)
+                    .Select(g => g.group_id)
+                    .Contains(s.group)
+            )
+        </span>
+    </TemplateColumn>
+
     <TemplateColumn Context="direction">
         @* <a href="@($"directions/edit?direction_id={direction.direction_id}")">Edit</a> | *@
         <a href="@($"directions/details?direction_id={direction.direction_id}")">Details</a>
