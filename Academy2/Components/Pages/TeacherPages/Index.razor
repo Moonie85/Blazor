@@ -16,10 +16,11 @@
     </p>
 </div>
 <QuickGrid Class="table" Items="context.Teachers">
+    <PropertyColumn Property="teacher => teacher.full_name" />
     <PropertyColumn Property="teacher => teacher.work_since" />
-    <PropertyColumn Property="teacher => teacher.rate" />
-    <PropertyColumn Property="teacher => teacher.Disciplines" />
-    <PropertyColumn Property="teacher => teacher.TDR" />
+    @* <PropertyColumn Property="teacher => teacher.rate" /> *@
+    @* <PropertyColumn Property="teacher => teacher.Disciplines" />
+    <PropertyColumn Property="teacher => teacher.TDR" /> *@
     @* <PropertyColumn Property="teacher => teacher.last_name" />
     <PropertyColumn Property="teacher => teacher.first_name" />
     <PropertyColumn Property="teacher => teacher.middle_name" /> *@
@@ -27,7 +28,6 @@
     @* <PropertyColumn Property="teacher => teacher.email" />
     <PropertyColumn Property="teacher => teacher.phone" />
     <PropertyColumn Property="teacher => teacher.photo" /> *@
-    <PropertyColumn Property="teacher => teacher.full_name" />
 
     <TemplateColumn Context="teacher">
         <a href="@($"/teachers/details?teacher_id={teacher.teacher_id}")"@teacher.full_name</a>
