@@ -21,5 +21,7 @@ namespace Academy2.Models
 
         // navigation properties:
         public ICollection<Teacher?> Teachers { get; set; }
+
+        public ICollection<TeachersDisciplinesRelation>? TDR { get; set; }
     }
 }
