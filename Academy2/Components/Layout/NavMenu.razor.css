@@ -46,60 +46,79 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-list-nested' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M4.5 11.5A.5.5 0 0 1 5 11h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 1 3h10a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5z'/%3E%3C/svg%3E");
 }
 
-.nav-item {
-    font-size: 0.9rem;
-    padding-bottom: 0.5rem;
+.group-nav-menu {
+    background-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 86 86" width="32" height="32" fill="white"> <path d="M71.2,51.2C74.1,48.8,76,45.1,76,41c0-6.9-5.6-13-12-13s-12,6.1-12,13c0,4.1,1.9,7.8,4.8,10.2 c-1.3,0.5-2.5,1-3.7,1.7c-3.8-4.5-8.8-8-14.6-9.7C42.9,40.1,46,34.8,46,29c0-9.1-7.5-17-16-17s-16,7.9-16,17 c0,5.8,3.1,11.1,7.5,14.2C9.1,46.9,0,58.4,0,72c0,1.1,0.9,2,2,2h82c1.1,0,2-0.9,2-2C86,62.4,79.8,54.2,71.2,51.2z M56,41 c0-4.2,3.5-9,8-9s8,4.8,8,9s-3.5,9-8,9S56,45.2,56,41z M18,29c0-6.1,5.1-13,12-13s12,6.9,12,13s-5.1,13-12,13S18,35.1,18,29z M4.1,70c1-13.4,12.3-24,25.9-24c13.7,0,24.9,10.6,25.9,24H4.1z M59.9,70c-0.3-5-1.9-9.8-4.5-13.8C58,54.8,60.9,54,64,54 c9.3,0,16.9,7,17.9,16H59.9z"/> </svg>');
 }
 
-    .nav-item:first-of-type {
-        padding-top: 1rem;
+.direction-nav-menu {
+    background-image: url('data:image/svg+xml, <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" fill="white" width="612px" height="612px" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve"> <g> <path d="M605.428,324.062L497.062,238.98c-2.388-2.388-5.675-3.586-9.553-3.586H322.416v-30.449h182.709 c9.254,0,16.419-7.464,16.419-16.718V17.765c0-9.254-7.165-16.418-16.419-16.418H124.791c-3.885,0-7.445,1.216-10.451,3.579 L6.267,90.007C1.942,93.415,0,98.07,0,103.445c0,5.076,1.936,9.438,6.267,12.833l108.073,84.789 c3.337,2.617,6.566,3.878,10.451,3.878h164.488v30.449H107.175c-4.478,0-8.362,1.497-11.643,4.777 c-3.286,3.286-5.076,7.165-5.076,11.642v170.762c0,9.26,7.464,16.424,16.718,16.424h182.104v155.234 c0,9.254,7.165,16.42,16.418,16.42c9.261,0,16.719-7.166,16.719-16.42V438.999h165.093c3.878,0,7.165-1.197,9.553-3.584 l108.366-85.082c4.368-3.434,6.572-7.764,6.572-13.432C612,331.526,609.797,327.487,605.428,324.062z M130.16,171.808 l-86.571-68.363l86.571-69.261h358.54v137.624H322.416h-33.137H130.16z M481.241,405.856H322.416h-33.137H123.594V268.532h165.685 h33.137h158.825l87.47,68.37L481.241,405.856z"/> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </svg> ');
+}
+
+.student-nav-menu {
+    background-image: url('data:image/svg+xml, <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 78 78" style="enable-background:new 0 0 78 78;" xml:space="preserve" fill="white"> <g id="_x37_7_Essential_Icons_70_"> <path id="User" d="M48.3,41.2C54.8,37.2,59,29.3,59,22c0-10.4-8.5-22-20-22S19,11.6,19,22c0,7.3,4.2,15.2,10.7,19.2 C14.3,45.3,3,59.4,3,76c0,1.1,0.9,2,2,2h68c1.1,0,2-0.9,2-2C75,59.4,63.7,45.3,48.3,41.2z M23,22c0-10.3,8.5-18,16-18s16,7.7,16,18 s-8.5,18-16,18S23,32.3,23,22z M7.1,74c1-16.7,15-30,31.9-30s30.9,13.3,31.9,30H7.1z"/> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </svg>');
+}
+
+.teacher-nav-menu {
+    background-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="white"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H53.39a8,8,0,0,0,7.23-4.57,48,48,0,0,1,86.76,0,8,8,0,0,0,7.23,4.57H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM80,144a24,24,0,1,1,24,24A24,24,0,0,1,80,144Zm136,56H159.43a64.39,64.39,0,0,0-28.83-26.16,40,40,0,1,0-53.2,0A64.39,64.39,0,0,0,48.57,200H40V56H216ZM56,96V80a8,8,0,0,1,8-8H192a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H176a8,8,0,0,1,0-16h8V88H72v8a8,8,0,0,1-16,0Z"/></svg>');
+}
+
+.discipline-nav-menu {
+    background-image: url('data:image/svg+xml, <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" fill="white" width="512px" height="512px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"> <g> <path d="M464,64v416H80c-17.672,0-32-14.312-32-32s14.328-32,32-32h352V0H80C44.656,0,16,28.656,16,64v384 c0,35.344,28.656,64,64,64h416V64H464z M80,128V96V32h320v352H80V128z M336,96H144V64h192V96z M272,160H144v-32h128V160z M208,224 h-64v-32h64V224z"/> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </svg>');
+}
+
+    .nav-item {
+        font-size: 0.9rem;
+        padding-bottom: 0.5rem;
     }
 
-    .nav-item:last-of-type {
-        padding-bottom: 1rem;
-    }
+        .nav-item:first-of-type {
+            padding-top: 1rem;
+        }
 
-    .nav-item ::deep .nav-link {
-        color: #d7d7d7;
-        background: none;
-        border: none;
-        border-radius: 4px;
-        height: 3rem;
-        display: flex;
-        align-items: center;
-        line-height: 3rem;
-        width: 100%;
-    }
+        .nav-item:last-of-type {
+            padding-bottom: 1rem;
+        }
 
-.nav-item ::deep a.active {
-    background-color: rgba(255,255,255,0.37);
-    color: white;
-}
+        .nav-item ::deep .nav-link {
+            color: #d7d7d7;
+            background: none;
+            border: none;
+            border-radius: 4px;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            line-height: 3rem;
+            width: 100%;
+        }
 
-.nav-item ::deep .nav-link:hover {
-    background-color: rgba(255,255,255,0.1);
-    color: white;
-}
+        .nav-item ::deep a.active {
+            background-color: rgba(255,255,255,0.37);
+            color: white;
+        }
 
-.nav-scrollable {
-    display: none;
-}
+        .nav-item ::deep .nav-link:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+        }
 
-.navbar-toggler:checked ~ .nav-scrollable {
-    display: block;
-}
-
-@media (min-width: 641px) {
-    .navbar-toggler {
+    .nav-scrollable {
         display: none;
     }
 
-    .nav-scrollable {
-        /* Never collapse the sidebar for wide screens */
+    .navbar-toggler:checked ~ .nav-scrollable {
         display: block;
-
-        /* Allow sidebar to scroll for tall menus */
-        height: calc(100vh - 3.5rem);
-        overflow-y: auto;
     }
-}
+
+    @media (min-width: 641px) {
+        .navbar-toggler {
+            display: none;
+        }
+
+        .nav-scrollable {
+            /* Never collapse the sidebar for wide screens */
+            display: block;
+            /* Allow sidebar to scroll for tall menus */
+            height: calc(100vh - 3.5rem);
+            overflow-y: auto;
+        }
+    }

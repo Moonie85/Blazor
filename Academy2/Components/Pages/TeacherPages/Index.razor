@@ -1,4 +1,5 @@
 @page "/teachers"
+@rendermode InteractiveServer
 @using Microsoft.AspNetCore.Components.QuickGrid
 @using Microsoft.EntityFrameworkCore
 @using Academy2.Models
@@ -16,22 +17,24 @@
     </p>
 </div>
 <QuickGrid Class="table" Items="context.Teachers">
-    <PropertyColumn Property="teacher => teacher.full_name" />
-    <PropertyColumn Property="teacher => teacher.work_since" />
+
+    <TemplateColumn Context="teacher" Sortable="true" SortBy="@(GridSort<Teacher>.ByAscending(t => t.last_name))">
+        <a href="@($"/teachers/details?teacher_id={teacher.teacher_id}")">@teacher.full_name</a>
+    </TemplateColumn>
+
+    @* <PropertyColumn Property="teacher => teacher.full_name" Sortable="true" /> *@
+    <PropertyColumn Property="teacher => teacher.work_since" Sortable="true" />
     @* <PropertyColumn Property="teacher => teacher.rate" /> *@
     @* <PropertyColumn Property="teacher => teacher.Disciplines" />
     <PropertyColumn Property="teacher => teacher.TDR" /> *@
     @* <PropertyColumn Property="teacher => teacher.last_name" />
     <PropertyColumn Property="teacher => teacher.first_name" />
     <PropertyColumn Property="teacher => teacher.middle_name" /> *@
-    <PropertyColumn Property="teacher => teacher.birth_date" />
+    <PropertyColumn Property="teacher => teacher.birth_date" Sortable="true" />
     @* <PropertyColumn Property="teacher => teacher.email" />
     <PropertyColumn Property="teacher => teacher.phone" />
     <PropertyColumn Property="teacher => teacher.photo" /> *@
 
-    <TemplateColumn Context="teacher">
-        <a href="@($"/teachers/details?teacher_id={teacher.teacher_id}")"@teacher.full_name</a>
-    </TemplateColumn>
 
     <TemplateColumn Context="teacher">
         <a href="@($"teachers/edit?teacher_id={teacher.teacher_id}")">Edit</a>
